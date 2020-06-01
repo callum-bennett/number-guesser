@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import {
+  Alert,
   Button,
   StyleSheet,
   Text,
   View,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 
 import Card from "../components/Card";
 import Input from "../components/Input";
 import Colors from "../constants/colors";
+import NumberContainer from "../components/NumberContainer";
 
 const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -24,22 +26,30 @@ const StartGameScreen = (props) => {
   const handleReset = () => {
     setEnteredValue("");
     setConfirmed(false);
-  }
+  };
 
   const handleConfirm = () => {
     const chosenNumber = parseInt(enteredValue);
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      Alert.alert(
+        "Invalid number!",
+        "Number has to be a numer between 1 and 99.",
+        [{ text: "OK", style: "destructive", onPress: handleReset }]
+      );
       return;
     }
     setConfirmed(true);
     setEnteredValue("");
     setSelectedNumber(chosenNumber);
-  }
+    Keyboard.dismiss();
+  };
 
   return (
-    <TouchableWithoutFeedback onPress={() => {
-      Keyboard.dismiss();
-    }}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
       <View style={styles.screen}>
         <Text style={styles.title}>Start a New Game!</Text>
         <Card style={styles.inputContainer}>
@@ -56,7 +66,11 @@ const StartGameScreen = (props) => {
           />
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
-              <Button title="Reset" onPress={handleReset} color={Colors.accent} />
+              <Button
+                title="Reset"
+                onPress={handleReset}
+                color={Colors.accent}
+              />
             </View>
             <View style={styles.button}>
               <Button
@@ -67,7 +81,13 @@ const StartGameScreen = (props) => {
             </View>
           </View>
         </Card>
-        {confirmed && <Text>Chosen Number: {selectedNumber}</Text>}
+        {confirmed && (
+          <Card style={styles.summaryContainer}>
+            <Text>You selected</Text>
+            <NumberContainer>{selectedNumber}</NumberContainer>
+            <Button title="START GAME" />
+          </Card>
+        )}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -101,6 +121,10 @@ const styles = StyleSheet.create({
   input: {
     textAlign: "center",
     width: 50,
+  },
+  summaryContainer: {
+    alignItems: "center",
+    marginTop: 20,
   },
 });
 
