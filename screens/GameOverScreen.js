@@ -1,8 +1,9 @@
 import React from "react";
-import { Button, Image, StyleSheet, View, Text } from "react-native";
+import { Image, StyleSheet, View, Text } from "react-native";
 
 import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
+import MainButton from "../components/MainButton";
 import Color from "../constants/colors";
 
 const GameOverScreen = (props) => {
@@ -25,7 +26,7 @@ const GameOverScreen = (props) => {
         </BodyText>
       </View>
 
-      <Button title="NEW GAME" onPress={props.onNewGame} />
+      <MainButton onPress={props.onNewGame}>NEW GAME</MainButton>
     </View>
   );
 };
@@ -54,13 +55,13 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans-bold",
   },
   resultContainer: {
-   marginVertical: 15,
-   marginHorizontal: 30,
+    marginVertical: 15,
+    marginHorizontal: 30,
   },
   resultText: {
     fontSize: 20,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
 
 export default GameOverScreen;
