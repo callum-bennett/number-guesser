@@ -9,15 +9,15 @@
   },
   "dependencies": {
     "@expo-google-fonts/open-sans": "^0.1.0",
-    "expo": "^33.0.0",
-    "expo-font": "~5.0.1",
-    "react": "16.8.3",
-    "react-dom": "^16.8.6",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
-    "react-native-web": "^0.11.4"
+    "expo": "^38.0.0",
+    "expo-font": "~8.2.1",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-web": "~0.11.7"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "babel-preset-expo": "^8.2.3"
   },
   "private": true
 }
