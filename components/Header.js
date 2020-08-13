@@ -6,13 +6,13 @@ import Colors from "../constants/colors";
 const Header = (props) => {
   return (
     <View
-      style={{
-        ...styles.headerBase,
-        ...Platform.select({
+      style={[
+        styles.headerBase,
+        Platform.select({
           ios: styles.headerIOS,
           android: styles.headerAndroid,
         }),
-      }}
+      ]}
     >
       <Text style={styles.headerTitle}>{props.title}</Text>
     </View>
