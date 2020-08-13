@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, Dimensions, ScrollView } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+} from "react-native";
 
 import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
@@ -21,9 +28,9 @@ const GameOverScreen = (props) => {
         </View>
         <View style={styles.resultContainer}>
           <BodyText style={styles.resultText}>
-            Your phone needed <Text style={styles.highlight}>{props.rounds}</Text>{" "}
-            rounds to guess the number{" "}
-            <Text style={styles.highlight}>{props.userNumber}</Text>
+            Your phone needed{" "}
+            <Text style={styles.highlight}>{props.rounds}</Text> rounds to guess
+            the number <Text style={styles.highlight}>{props.userNumber}</Text>
           </BodyText>
         </View>
 
@@ -38,16 +45,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   image: {
     width: "100%",
     height: "100%",
   },
   imageContainer: {
-    width: Dimensions.get("window").width * .7,
-    height: Dimensions.get("window").width * .7,
-    borderRadius: Dimensions.get("window").width * .7 / 2,
+    width: Dimensions.get("window").width * 0.7,
+    height: Dimensions.get("window").width * 0.7,
+    borderRadius: (Dimensions.get("window").width * 0.7) / 2,
     borderWidth: 3,
     borderColor: "black",
     overflow: "hidden",
